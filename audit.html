@@ -70,6 +70,17 @@
         .prog-pct { font-size:11px; color:#9f7aea; font-weight:500; }
         .card-body { padding:40px 44px 44px; }
 
+        /* Category Selector */
+        .cat-prompt { font-family:'Cormorant Garamond',serif; font-size:22px; font-weight:600; color:#f0eafa; line-height:1.35; margin-bottom:6px; }
+        .cat-prompt-sub { font-size:13px; color:#7c6d8a; margin-bottom:28px; line-height:1.6; }
+        .cat-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:10px; margin-bottom:4px; }
+        .cat-card { background:#12081f; border:1px solid #2d1a4a; border-radius:12px; padding:22px 16px 18px; cursor:pointer; transition:all .2s; text-align:center; }
+        .cat-card:hover { border-color:#7c3aed; background:#1a0a2e; transform:translateY(-2px); box-shadow:0 8px 24px rgba(124,58,237,.2); }
+        .cat-icon { width:46px; height:46px; border-radius:11px; background:rgba(124,58,237,.12); display:flex; align-items:center; justify-content:center; margin:0 auto 12px; color:#9f7aea; transition:background .2s; }
+        .cat-card:hover .cat-icon { background:rgba(124,58,237,.22); }
+        .cat-label { font-family:'Cormorant Garamond',serif; font-size:1.15rem; font-weight:700; color:#f5f0ff; margin-bottom:5px; }
+        .cat-desc { font-size:11.5px; color:#6b5880; line-height:1.5; }
+
         /* Question */
         .q-block { animation:fadeslide .3s ease; }
         @keyframes fadeslide { from{opacity:0;transform:translateY(8px)} to{opacity:1;transform:translateY(0)} }
@@ -83,6 +94,7 @@
         .q-textarea { width:100%; background:#12081f; border:1px solid #2d1a4a; border-radius:10px; padding:14px 16px; color:#e8dff5; font-family:'DM Sans',sans-serif; font-size:13px; font-weight:300; line-height:1.65; resize:none; height:90px; outline:none; transition:border-color .2s,box-shadow .2s; }
         .q-textarea:focus { border-color:#7c3aed; box-shadow:0 0 0 3px rgba(124,58,237,.1); }
         .q-textarea::placeholder { color:#4a3860; }
+        .q-textarea.text-only { height:56px; }
         .nav-row { display:flex; justify-content:space-between; align-items:center; margin-top:24px; }
         .btn-back-card { background:none; border:none; color:#6b5880; font-family:'DM Sans',sans-serif; font-size:13px; cursor:pointer; padding:0; transition:color .2s; }
         .btn-back-card:hover { color:#9f7aea; }
@@ -142,8 +154,8 @@
         .rst { font-size:13px; font-weight:600; color:#e8dff5; margin-bottom:4px; }
         .rsb { font-size:13px; color:#9f8aae; line-height:1.72; font-weight:300; }
         .step-priority { display:inline-block; font-size:9px; font-weight:700; letter-spacing:.12em; text-transform:uppercase; padding:3px 8px; border-radius:4px; margin-bottom:5px; }
-        .sp-high { background:rgba(239,68,68,.12); color:#f87171; border:1px solid rgba(239,68,68,.2); }
-        .sp-med  { background:rgba(251,146,60,.1); color:#fb923c; border:1px solid rgba(251,146,60,.2); }
+        .sp-high  { background:rgba(239,68,68,.12); color:#f87171; border:1px solid rgba(239,68,68,.2); }
+        .sp-med   { background:rgba(251,146,60,.1); color:#fb923c; border:1px solid rgba(251,146,60,.2); }
         .sp-build { background:rgba(124,58,237,.12); color:#a855f7; border:1px solid rgba(124,58,237,.2); }
         .step-metric { font-size:11px; color:#7c3aed; margin-top:8px; padding:6px 10px; background:rgba(124,58,237,.07); border-radius:6px; }
         .step-timeline { font-size:10px; color:#5a4870; margin-top:4px; }
@@ -186,11 +198,6 @@
         .btn-dl-tracker { display:inline-flex; align-items:center; gap:7px; background:transparent; border:1px solid rgba(201,168,76,.3); border-radius:8px; padding:9px 18px; font-family:'DM Sans',sans-serif; font-size:12px; font-weight:500; color:var(--gold); cursor:pointer; transition:all .2s; }
         .btn-dl-tracker:hover { background:var(--gold-dim); color:var(--gold-light); }
         .tracker-save-note { font-size:11px; color:#3d2a55; }
-
-        /* Tracker download button (above tracker) */
-        .tracker-wrap { margin:20px 0 0; }
-        .btn-tracker { display:inline-flex; align-items:center; gap:9px; background:linear-gradient(135deg,rgba(201,168,76,.1),rgba(201,168,76,.04)); border:1px solid rgba(201,168,76,.28); border-radius:10px; padding:14px 22px; font-family:'DM Sans',sans-serif; font-size:13px; font-weight:500; color:var(--gold); cursor:pointer; transition:all .2s; width:100%; justify-content:center; }
-        .btn-tracker:hover { background:linear-gradient(135deg,rgba(201,168,76,.18),rgba(201,168,76,.08)); border-color:rgba(201,168,76,.5); color:var(--gold-light); transform:translateY(-1px); }
 
         /* Dig Deeper */
         .dig-deeper-wrap { margin:28px 0 8px; padding:24px; background:rgba(201,168,76,.05); border:1px solid rgba(201,168,76,.18); border-radius:12px; text-align:center; }
@@ -236,8 +243,6 @@
 
         /* Error banner */
         .re-error { background:rgba(239,68,68,.07); border:1px solid rgba(239,68,68,.18); border-radius:10px; padding:14px 16px; margin-bottom:20px; font-size:13px; color:#f87171; line-height:1.65; }
-        .re-error code { background:rgba(255,255,255,.08); padding:2px 6px; border-radius:3px; font-size:11px; }
-        .re-error a { color:#a78bfa; text-decoration:underline; }
 
         /* Stats strip */
         .stats-strip { background:var(--black-2); border-top:1px solid rgba(255,255,255,.05); border-bottom:1px solid rgba(255,255,255,.05); padding:52px 0; }
@@ -276,6 +281,7 @@
             .footer-inner { flex-direction:column; text-align:center; }
             .step-pills { display:none; }
             .tracker-tabs .tracker-tab { font-size:10px; padding:10px 4px; }
+            .cat-grid { grid-template-columns:1fr 1fr; }
         }
     </style>
 </head>
@@ -294,35 +300,35 @@
     <div class="wrap hero-inner">
         <h1>The Excellence<br><span class="gradient-word">Audit.</span></h1>
         <span class="gold-line"></span>
-        <p class="hero-sub">Five questions. A real AI diagnosis and a precise action plan — built for your operation.</p>
+        <p class="hero-sub">Choose your focus. Five questions. A real AI diagnosis and a precise action plan — built for your operation.</p>
     </div>
 </section>
 
 <section class="audit-stage">
     <div class="wrap">
-        <div class="step-pills" id="stepPills">
-            <div class="step-pill active" id="pill-0"><div class="pill-num">1</div> Challenge</div>
+        <div class="step-pills" id="stepPills" style="display:none;">
+            <div class="step-pill active" id="pill-0"><div class="pill-num">1</div> <span class="pill-lbl">Q1</span></div>
             <div class="step-connector"></div>
-            <div class="step-pill" id="pill-1"><div class="pill-num">2</div> Scale</div>
+            <div class="step-pill" id="pill-1"><div class="pill-num">2</div> <span class="pill-lbl">Q2</span></div>
             <div class="step-connector"></div>
-            <div class="step-pill" id="pill-2"><div class="pill-num">3</div> Experience</div>
+            <div class="step-pill" id="pill-2"><div class="pill-num">3</div> <span class="pill-lbl">Q3</span></div>
             <div class="step-connector"></div>
-            <div class="step-pill" id="pill-3"><div class="pill-num">4</div> Team</div>
+            <div class="step-pill" id="pill-3"><div class="pill-num">4</div> <span class="pill-lbl">Q4</span></div>
             <div class="step-connector"></div>
-            <div class="step-pill" id="pill-4"><div class="pill-num">5</div> Vision</div>
+            <div class="step-pill" id="pill-4"><div class="pill-num">5</div> <span class="pill-lbl">Q5</span></div>
         </div>
 
         <div class="audit-card">
             <div class="card-header">
                 <div>
                     <div class="card-eyebrow">Restaurant Excellence</div>
-                    <div class="card-title">The Excellence Audit</div>
+                    <div class="card-title" id="cardTitle">The Excellence Audit</div>
                     <div class="card-subtitle">AI-powered. Research-backed. Built for your specific operation.</div>
                 </div>
                 <div class="card-header-badge" id="cardBadge">Free · No commitment</div>
             </div>
 
-            <div class="prog-bar-wrap" id="progWrap">
+            <div class="prog-bar-wrap" id="progWrap" style="display:none;">
                 <div class="prog-row">
                     <div class="prog-seg active" id="ps0"></div>
                     <div class="prog-seg" id="ps1"></div>
@@ -337,25 +343,61 @@
             </div>
 
             <div class="card-body">
-                <div id="re-quiz"><div id="re-step-content"></div></div>
 
-                <div class="re-load" id="re-load">
-                    <div class="re-dots"><span></span><span></span><span></span></div>
-                    <p class="load-label" id="load-main">Analyzing your challenge area...</p>
-                    <p class="load-sublabel" id="load-sub">Identifying primary bottleneck</p>
-                    <div class="load-phases">
-                        <div class="lp-item active" id="lp0"><div class="lp-dot"></div> Analyzing your challenge area</div>
-                        <div class="lp-item" id="lp1"><div class="lp-dot"></div> Cross-referencing industry research</div>
-                        <div class="lp-item" id="lp2"><div class="lp-dot"></div> Building your action plan</div>
-                        <div class="lp-item" id="lp3"><div class="lp-dot"></div> Generating your tracker</div>
+                <!-- ── Category Selector ── -->
+                <div id="re-category">
+                    <div class="cat-prompt">What area do you want to diagnose?</div>
+                    <p class="cat-prompt-sub">Each audit is specifically built for that area of your operation — five targeted questions, real AI analysis.</p>
+                    <div class="cat-grid">
+                        <div class="cat-card" onclick="selectCategory('operations')">
+                            <div class="cat-icon"><i data-lucide="settings-2" style="width:22px;height:22px;"></i></div>
+                            <div class="cat-label">Operations</div>
+                            <div class="cat-desc">Systems, standards & team dependency</div>
+                        </div>
+                        <div class="cat-card" onclick="selectCategory('marketing')">
+                            <div class="cat-icon"><i data-lucide="megaphone" style="width:22px;height:22px;"></i></div>
+                            <div class="cat-label">Marketing</div>
+                            <div class="cat-desc">Local reach, digital presence & revenue growth</div>
+                        </div>
+                        <div class="cat-card" onclick="selectCategory('training')">
+                            <div class="cat-icon"><i data-lucide="graduation-cap" style="width:22px;height:22px;"></i></div>
+                            <div class="cat-label">Training</div>
+                            <div class="cat-desc">Onboarding, skill-building & team development</div>
+                        </div>
+                        <div class="cat-card" onclick="selectCategory('financial')">
+                            <div class="cat-icon"><i data-lucide="trending-up" style="width:22px;height:22px;"></i></div>
+                            <div class="cat-label">Financial</div>
+                            <div class="cat-desc">Costs, margins, profitability & cash flow</div>
+                        </div>
+                        <div class="cat-card" onclick="selectCategory('expansion')">
+                            <div class="cat-icon"><i data-lucide="map-pin" style="width:22px;height:22px;"></i></div>
+                            <div class="cat-label">Expansion</div>
+                            <div class="cat-desc">Multi-unit growth, scaling & new markets</div>
+                        </div>
                     </div>
                 </div>
 
+                <!-- ── Quiz ── -->
+                <div id="re-quiz" style="display:none;"><div id="re-step-content"></div></div>
+
+                <!-- ── Loading ── -->
+                <div class="re-load" id="re-load">
+                    <div class="re-dots"><span></span><span></span><span></span></div>
+                    <p class="load-label" id="load-main">Analyzing your situation…</p>
+                    <p class="load-sublabel" id="load-sub">Building your diagnosis</p>
+                    <div class="load-phases">
+                        <div class="lp-item active" id="lp0"><div class="lp-dot"></div> <span id="lp0-text">Analyzing your answers</span></div>
+                        <div class="lp-item" id="lp1"><div class="lp-dot"></div> <span id="lp1-text">Cross-referencing industry research</span></div>
+                        <div class="lp-item" id="lp2"><div class="lp-dot"></div> <span id="lp2-text">Building your action plan</span></div>
+                        <div class="lp-item" id="lp3"><div class="lp-dot"></div> <span id="lp3-text">Generating your tracker</span></div>
+                    </div>
+                </div>
+
+                <!-- ── Results ── -->
                 <div class="re-result" id="re-result">
-                    <!-- Score gauge -->
                     <div class="score-section">
                         <div class="score-header">
-                            <div class="score-label">Operational Readiness Score</div>
+                            <div class="score-label" id="scoreLabelText">Readiness Score</div>
                             <div class="score-value" id="scoreNum">—<span> / 100</span></div>
                         </div>
                         <div class="gauge-track">
@@ -368,20 +410,14 @@
                             <div class="gauge-bench-item"><div class="gauge-bench-dot" style="background:#c9a84c;"></div> Top operators: 78</div>
                         </div>
                     </div>
-
-                    <!-- Benchmark cards -->
                     <div class="data-points" id="dataPoints"></div>
-
-                    <!-- Diagnosis -->
                     <div class="result-section-label">The Real Problem</div>
                     <div class="result-reframe" id="rrf"></div>
                     <div class="root-causes" id="rootCauses"></div>
-
                     <div class="result-divider"></div>
                     <div class="result-section-label">Your Action Plan</div>
                     <div class="result-steps" id="rsteps"></div>
 
-                    <!-- In-page tracker -->
                     <div class="tracker-section" id="trackerSection" style="display:none;">
                         <div class="tracker-header">
                             <div>
@@ -415,7 +451,7 @@
                     <div class="result-arc"><div class="rarct" id="rarct"></div><div class="rarctl" id="rarctl"></div></div>
 
                     <div class="dig-deeper-wrap" id="digDeepWrap">
-                        <p><strong>Not the answer you were looking for?</strong><br>Answer 3 more targeted questions and the AI will build a deeper, more specific diagnosis for your situation.</p>
+                        <p><strong>Want a deeper diagnosis?</strong><br>Answer 3 more targeted questions and the AI will build a more specific, surgical plan for your situation.</p>
                         <button class="btn-dig" onclick="startDig()">
                             <i data-lucide="chevrons-down" style="width:15px;height:15px;"></i>
                             Let's Dig Deeper
@@ -435,7 +471,7 @@
                     <button class="rreset" onclick="resetAll()">Start a new audit →</button>
                 </div>
 
-                <!-- Deep quiz -->
+                <!-- ── Deep Quiz ── -->
                 <div class="re-deep-quiz" id="re-deep-quiz">
                     <div class="deep-quiz-header">
                         <div class="deep-badge">Deep Diagnosis</div>
@@ -444,7 +480,7 @@
                     <div id="re-deep-step-content"></div>
                 </div>
 
-                <!-- Deep result -->
+                <!-- ── Deep Result ── -->
                 <div class="re-deep-result" id="re-deep-result">
                     <div class="deep-result-header">
                         <div class="deep-result-icon"><i data-lucide="search" style="width:20px;height:20px;"></i></div>
@@ -463,7 +499,7 @@
                     <div class="deep-arc"><div class="darct" id="deep-arc-text"></div><div class="darctl" id="deep-arc-tag"></div></div>
                     <div class="rgate" style="margin-top:0;">
                         <div class="rgt">Save Your Full Report</div>
-                        <div class="rgs">Enter your details to receive both diagnoses — initial and deep — as a complete report.</div>
+                        <div class="rgs">Enter your details to receive both diagnoses as a complete report.</div>
                         <div class="ri-row">
                             <input class="ri" id="rname2" placeholder="Your name" />
                             <input class="ri" id="remail2" placeholder="Email address" />
@@ -473,8 +509,9 @@
                     </div>
                     <button class="rreset" onclick="resetAll()">Start a new audit →</button>
                 </div>
-            </div>
-        </div>
+
+            </div><!-- /card-body -->
+        </div><!-- /audit-card -->
     </div>
 </section>
 
@@ -509,105 +546,315 @@
     <div class="wrap footer-inner">
         <div class="foot-logo">Restaurant<em>Excellence</em></div>
         <p class="foot-copy">© 2025 Restaurant Excellence. All rights reserved.</p>
-        <div class="foot-links"><a href="index.html">Main Site</a><a href="index.html#contact">Contact</a><a href="#">Podcast</a></div>
+        <div class="foot-links"><a href="index.html">Main Site</a><a href="index.html#contact">Contact</a></div>
     </div>
 </footer>
 
 <script>lucide.createIcons();</script>
 <script>
 /* ══════════════════════════════════════════════════════════════════
-   RESTAURANT EXCELLENCE AUDIT — AI-POWERED ENGINE
-   ──────────────────────────────────────────────────────────────────
-   HOW TO ENABLE AI:
-   1. Deploy worker.js as a Cloudflare Worker (see README or setup instructions)
-   2. Add your Anthropic API key as a secret called ANTHROPIC_API_KEY in the Worker
-   3. Paste your Worker URL into RE_WORKER_URL below
-   The API key never appears in this file — it lives securely in Cloudflare.
+   RESTAURANT EXCELLENCE AUDIT — AI ENGINE
 ══════════════════════════════════════════════════════════════════ */
 
 const RE_WORKER_URL = 'https://re-audit-api.pierce-437.workers.dev';
 const RE_MODEL      = 'claude-opus-4-5';
 
-/* ─── SYSTEM PROMPT ─── */
-const RE_SYSTEM = `You are a direct, experienced restaurant operations consultant. You've worked with independent operators, growing chains, and franchise groups for 20+ years. You give honest, specific, data-driven diagnoses — not generic encouragement.
+/* ─── JSON RESPONSE SCHEMA (appended to every system prompt) ─── */
+const JSON_SCHEMA = `
+Respond ONLY with valid JSON — no markdown fences, no text outside the JSON. Use this exact structure:
+{
+  "headline": "8-12 word precise diagnosis naming the core failure",
+  "readiness_score": 45,
+  "reframe": "3-4 sentences diagnosing what is actually happening. Include at least 2 specific statistics with named sources. Direct tone.",
+  "root_causes": ["Specific root cause 1","Root cause 2","Root cause 3"],
+  "benchmarks": [
+    {"stat": "75%", "label": "What this statistic reveals about their situation", "bar": 75, "source": "Source name"},
+    {"stat": "$4,700", "label": "What this figure means in their context", "bar": 55, "source": "Source name"}
+  ],
+  "action_plan": [
+    {"priority": "Do This Week", "timeline": "Days 1–7", "title": "Specific action step", "body": "3-4 sentences with exact mechanics.", "success_metric": "Observable outcome at Day 7"},
+    {"priority": "Build This Month", "timeline": "Days 8–30", "title": "Step 2", "body": "3-4 sentences.", "success_metric": "Measurable outcome at Day 30"},
+    {"priority": "Build to Scale", "timeline": "Days 30–90", "title": "Step 3", "body": "3-4 sentences.", "success_metric": "90-day system outcome"}
+  ],
+  "arc": {"text": "2-3 sentences about the trajectory if they do the work.", "tagline": "A single memorable phrase"}
+}`;
+
+/* ─── SYSTEM PROMPTS ─── */
+const SYSTEM_OPERATIONS = `You are a direct, experienced restaurant operations consultant. You've worked with independent operators, growing chains, and franchise groups for 20+ years. You give honest, specific, data-driven diagnoses — not generic encouragement.
 
 You cite real research:
 - Bureau of Labor Statistics (workforce & turnover data)
 - Cornell Center for Hospitality Research
-- Harvard Business School (Luca 2011 Yelp revenue impact study — 1 star = 5-9% revenue change)
+- Harvard Business School (Luca 2011 Yelp study — 1 star = 5-9% revenue change)
 - Gallup State of the American Manager (managers account for 70% of variance in team engagement)
 - National Restaurant Association annual data
 - Toast State of the Restaurant Industry
-- Industry texts: E-Myth Revisited (Gerber), Setting the Table (Meyer), Multi-Unit Leadership (Sullivan)
+- E-Myth Revisited (Gerber), Setting the Table (Meyer), Multi-Unit Leadership (Sullivan)
 
 Be specific. Name sources. Give operators concrete mechanics they can act on today.
+${JSON_SCHEMA}`;
 
-Respond ONLY with valid JSON — no markdown code fences, no explanation outside the JSON. Use this exact structure:
+const SYSTEM_MARKETING = `You are a restaurant marketing specialist with 20+ years of experience growing independent restaurants and small chains through local marketing. You understand digital marketing, social media, SEO, paid advertising, email marketing, and reputation management.
 
-{
-  "headline": "8-12 word precise diagnosis naming the core operational failure",
-  "readiness_score": 45,
-  "reframe": "3-4 sentences diagnosing what is actually happening — not what the operator thinks is happening. Include at least 2 specific statistics with named sources. Direct tone. Do not be encouraging.",
-  "root_causes": [
-    "Specific root cause 1 (concrete, not vague)",
-    "Root cause 2",
-    "Root cause 3"
-  ],
-  "benchmarks": [
-    {
-      "stat": "75%",
-      "label": "Specific description of what this statistic reveals about their situation",
-      "bar": 75,
-      "source": "Bureau of Labor Statistics"
+When you receive a restaurant name and zip code or city, factor in what you know about that market. Consider regional demographics, competition density, and local marketing dynamics to make your recommendations geographically specific.
+
+You cite real research:
+- Harvard Business School Yelp study (Luca 2011 — 1 star = 5-9% revenue change)
+- Toast State of the Restaurant Industry (digital ordering, online discovery trends)
+- National Restaurant Association marketing data
+- BrightLocal Local Consumer Review Survey
+- Google restaurant search behavior data
+- Meta restaurant advertising benchmarks
+
+Be specific about tactics, budgets, and platforms. Tell operators exactly what to do and in what order. Be direct about what is wasted money in restaurant marketing.
+${JSON_SCHEMA}`;
+
+const SYSTEM_TRAINING = `You are a restaurant training and development specialist. You have built training programs for independent restaurants, regional chains, and franchise systems. You understand onboarding design, skills certification, manager development, and how training directly impacts retention, quality, and profitability.
+
+You cite real research:
+- Bureau of Labor Statistics (turnover and retention data)
+- Cornell Center for Hospitality Research (training ROI studies)
+- SHRM onboarding effectiveness research
+- National Restaurant Association workforce training data
+- Gallup employee engagement research
+
+Give operators specific, system-based training fixes — not vague advice. Identify what is broken in their training and give them an exact rebuild sequence.
+${JSON_SCHEMA}`;
+
+const SYSTEM_FINANCIAL = `You are a restaurant financial consultant. You have diagnosed and fixed food cost, labor cost, prime cost, cash flow, and profitability problems for independent operators and multi-unit groups for 20+ years. You speak in specific percentages, dollar amounts, and actionable financial mechanics.
+
+Industry benchmarks you use:
+- Food cost target: 28-32% for full service, 25-30% for QSR
+- Labor cost target: 25-35% depending on concept
+- Prime cost target: under 60% for profitable operations
+- Net profit target: 10-15% is excellent; 3-6% is industry average
+
+You cite real research:
+- National Restaurant Association financial benchmarks
+- Cornell Center for Hospitality Research financial studies
+- Toast restaurant financial benchmarks
+- USDA food cost data
+
+Be specific about the numbers. Tell operators exactly what to measure, what target to hit, and what to change. Do not be vague.
+${JSON_SCHEMA}`;
+
+const SYSTEM_EXPANSION = `You are a multi-unit restaurant development consultant. You have guided operators through opening their second, third, and tenth locations. You are direct about readiness — if someone is not ready to expand, say so clearly and tell them what has to happen first.
+
+You cite real research:
+- National Restaurant Association multi-unit data
+- Cornell Center for Hospitality Research expansion studies
+- E-Myth Revisited (Gerber) — systems must precede scaling
+- Multi-Unit Leadership (Sullivan)
+- QSR Magazine expansion and franchise data
+
+Be honest about risk. Give operators a clear expansion readiness assessment and a precise sequence for what to build before, during, and after opening a new location.
+${JSON_SCHEMA}`;
+
+/* ─── CATEGORY DEFINITIONS ─── */
+const CATEGORIES = {
+  operations: {
+    label: 'Operations Audit',
+    scoreLabel: 'Operational Readiness Score',
+    pills: ['Challenge','Scale','Experience','Team','Vision'],
+    phases: [
+      { main:'Analyzing your operational challenge…',    sub:'Identifying the primary bottleneck',              lp:0 },
+      { main:'Cross-referencing 14 industry studies…',  sub:'BLS · Cornell · Harvard · Gallup · NRA',         lp:1 },
+      { main:'Building your precision action plan…',    sub:'Matching to your scale and team structure',       lp:2 },
+      { main:'Generating your progress tracker…',       sub:'Personalizing your 30/60/90-day roadmap',        lp:3 },
+    ],
+    questions: [
+      { q:"What's your biggest operational challenge right now?", opts:["My team can't run it without me","Inconsistent standards & execution","I want to grow but feel stuck","High turnover / bad culture","Guest experience is suffering"], ph:"Or describe it in your own words…" },
+      { q:"How many locations do you operate?", opts:["1 location","2–3 locations","4–9 locations","10+"], ph:"Or tell us more about your setup…" },
+      { q:"How long have you been in this role?", opts:["Under 1 year","1–3 years","3–7 years","7+ years"], ph:"Or add any context…" },
+      { q:"What does your team structure look like?", opts:["Just me and hourly staff","1–2 managers I rely on","Full management team","No real structure yet"], ph:"Or describe your team…" },
+      { q:"What does winning look like in the next 12 months?", opts:["Step back without things falling apart","Open another location","Build a team that leads itself","Get consistent — stop fighting fires","Turn this into something I'm proud of"], ph:"Or describe it in your own words…" }
+    ],
+    deepQuestions: {
+      "My team can't run it without me": [
+        { q:"When you're not there, what typically breaks first?", opts:["Decision-making stops — nobody has authority","Quality drops within an hour","Guest complaints go unhandled","Staff stop following the system"], ph:"Or describe what you've seen…" },
+        { q:"How much of your operation is documented in writing?", opts:["Almost nothing is written down","A few critical things","Core processes exist but aren't consistently followed","Most operations are fully documented"], ph:"Describe your documentation reality…" },
+        { q:"What would have to be true to take a full week off?", opts:["A manager who knows everything I know","Written systems anyone could follow","Both strong leaders AND documented systems","I honestly don't know"], ph:"Describe what you'd actually need…" }
+      ],
+      "default": [
+        { q:"Where does the problem hurt most — guests, team, or finances?", opts:["Guests feel it directly","My team is burning out","It's showing up in the numbers","All three"], ph:"Describe where you feel the pain most…" },
+        { q:"How long has this been a problem?", opts:["Just started — last 1-3 months","6-12 months","1-2 years","It's always been this way"], ph:"Or describe the timeline…" },
+        { q:"What have you already tried that hasn't worked?", opts:["Hiring more people","Changing the schedule or structure","Training harder","I haven't really addressed it yet"], ph:"Describe what you've attempted…" }
+      ]
     },
-    {
-      "stat": "$4,700",
-      "label": "What this cost figure means in their context with a direct implication",
-      "bar": 55,
-      "source": "Cornell Center for Hospitality Research"
-    }
-  ],
-  "action_plan": [
-    {
-      "priority": "Do This Week",
-      "timeline": "Days 1–7",
-      "title": "Specific, concrete action step — not a suggestion, an instruction",
-      "body": "3-4 sentences. Exact mechanics of what to do and how. Include research backing. Be specific enough that an operator can act on this today without asking a follow-up question.",
-      "success_metric": "The specific, observable thing they check at Day 7 to confirm it is working"
+    buildMsg: (a) => `Restaurant operator assessment:
+- Primary challenge: ${a[0]}
+- Locations operated: ${a[1]}
+- Years in this role: ${a[2]}
+- Team structure: ${a[3]}
+- 12-month goal: ${a[4]}
+
+Give a direct, data-driven operations diagnosis and a precise, actionable plan for this specific operator.`,
+    system: SYSTEM_OPERATIONS
+  },
+
+  marketing: {
+    label: 'Marketing Audit',
+    scoreLabel: 'Marketing Readiness Score',
+    pills: ['Restaurant','Location','Channels','Budget','Goal'],
+    phases: [
+      { main:'Analyzing your restaurant and market…',       sub:'Factoring in location and competition dynamics',   lp:0 },
+      { main:'Evaluating your channel mix and spend…',      sub:'Benchmarking against high-performing operators',   lp:1 },
+      { main:'Building your local marketing strategy…',     sub:'Matching tactics to your budget and goals',        lp:2 },
+      { main:'Generating your marketing action plan…',      sub:'Prioritizing highest-ROI moves first',             lp:3 },
+    ],
+    questions: [
+      { q:"What's the name of your restaurant?", opts:[], textOnly:true, ph:"e.g. The Blue Plate Diner" },
+      { q:"What's your zip code or city?", opts:[], textOnly:true, ph:"e.g. 78701 or Austin, TX" },
+      { q:"What marketing channels are you currently using?", opts:["Social media (organic only)","Social media + paid ads","Google Ads / local SEO focus","Email & loyalty programs","Mostly word of mouth — little to no marketing"], ph:"Or describe your current marketing mix…" },
+      { q:"What's your monthly marketing budget?", opts:["Under $500","$500–$1,500","$1,500–$5,000","$5,000+","No dedicated budget"], ph:"Or describe your spend…" },
+      { q:"What does marketing success look like in 12 months?", opts:["More new guests finding us","Better online ratings & reviews","Higher return guest frequency","Packed weeknights, not just weekends","A clear brand people recognize and talk about"], ph:"Or describe your goal…" }
+    ],
+    deepQuestions: {
+      "default": [
+        { q:"How do most new guests currently hear about you?", opts:["Google search or Google Maps","Instagram or Facebook","Word of mouth from regulars","Walk-by traffic","We're not sure — we don't track it"], ph:"Describe how guests find you now…" },
+        { q:"What's your current Google or Yelp rating?", opts:["4.5+ stars","4.0–4.4 stars","3.5–3.9 stars","Under 3.5 stars","Not sure / haven't checked recently"], ph:"Or tell us your situation…" },
+        { q:"Have you run paid advertising before?", opts:["Never tried it","Tried it but didn't see results","Run it occasionally","Run it consistently and it works"], ph:"Describe your paid advertising experience…" }
+      ]
     },
-    {
-      "priority": "Build This Month",
-      "timeline": "Days 8–30",
-      "title": "Step 2 — something they build or systematize",
-      "body": "3-4 sentences with exact mechanics...",
-      "success_metric": "What completion looks like at Day 30 — measurable and specific"
+    buildMsg: (a) => `Restaurant marketing assessment:
+- Restaurant name: ${a[0]}
+- Location (zip code / city): ${a[1]}
+- Current marketing channels: ${a[2]}
+- Monthly marketing budget: ${a[3]}
+- 12-month marketing goal: ${a[4]}
+
+This restaurant is at ${a[1]}. Factor in what you know about this type of market — competition density, local demographics, and what marketing channels typically perform well for restaurants in this area and budget range. Give a location-specific diagnosis and a precise, budget-appropriate marketing action plan.`,
+    system: SYSTEM_MARKETING
+  },
+
+  training: {
+    label: 'Training Audit',
+    scoreLabel: 'Training Readiness Score',
+    pills: ['Challenge','Process','Timeline','Volume','Goal'],
+    phases: [
+      { main:'Diagnosing your training breakdown…',     sub:'Identifying where the system fails',              lp:0 },
+      { main:'Cross-referencing training research…',    sub:'Cornell · SHRM · NRA · BLS retention data',       lp:1 },
+      { main:'Building your training system plan…',     sub:'Matching to your team size and structure',        lp:2 },
+      { main:'Generating your training tracker…',       sub:'Sequencing the rebuild for your operation',       lp:3 },
+    ],
+    questions: [
+      { q:"What's your biggest training challenge?", opts:["New hires quit before they're fully trained","Quality drops when I'm not watching","Managers train inconsistently — everyone learns something different","No real system — it's all verbal and on-the-fly","Can't keep up with the pace of turnover"], ph:"Or describe it in your own words…" },
+      { q:"How do you currently onboard new staff?", opts:["They shadow someone for a few shifts","A manager walks them through it verbally","We have a written manual they read","Certified skills sign-off required before solo shifts"], ph:"Describe your current onboarding reality…" },
+      { q:"How long does it take a new hire to work independently?", opts:["1–3 days","About a week","2–3 weeks","A month or more","They never fully get there"], ph:"Or describe what you've typically seen…" },
+      { q:"How many people are you training at any given time?", opts:["1–2 at a time","3–5 simultaneously","6–10 at a time","10+ in constant rotation"], ph:"Or describe your training volume…" },
+      { q:"What does a world-class training program look like for you?", opts:["Consistent quality no matter who's training","New hires ready faster with less hand-holding","Managers who can train without me in the room","A system that works even during high turnover"], ph:"Or describe the outcome you want…" }
+    ],
+    deepQuestions: {
+      "default": [
+        { q:"Do you have a written training manual or SOP?", opts:["No — nothing is written down","Partial — some things are documented","Yes — but it's not consistently used","Yes — and it's the foundation of training"], ph:"Describe your documentation situation…" },
+        { q:"Who does most of the training right now?", opts:["Me — I do almost all of it","One or two key employees","Whoever is available that shift","A designated trainer or training manager"], ph:"Describe who actually trains your people…" },
+        { q:"What's your 30-day retention rate for new hires?", opts:["Under 50% — most leave quickly","50–70% — better but still high churn","70–85% — decent but room to improve","85%+ — most make it through"], ph:"Or estimate what you've seen…" }
+      ]
     },
-    {
-      "priority": "Build to Scale",
-      "timeline": "Days 30–90",
-      "title": "Step 3 — the structural shift that makes it permanent",
-      "body": "3-4 sentences with exact mechanics...",
-      "success_metric": "What the 90-day outcome looks like — the system that now runs without the operator"
-    }
-  ],
-  "arc": {
-    "text": "2-3 sentences about where this trajectory leads if they do the work. Specific, earned, not generic.",
-    "tagline": "A single memorable phrase capturing their excellence trajectory"
+    buildMsg: (a) => `Restaurant training assessment:
+- Biggest training challenge: ${a[0]}
+- Current onboarding method: ${a[1]}
+- Time to independent work: ${a[2]}
+- Training volume (concurrent): ${a[3]}
+- 12-month training goal: ${a[4]}
+
+Give a direct diagnosis of what is broken in this training operation and a precise, system-focused action plan to rebuild it.`,
+    system: SYSTEM_TRAINING
+  },
+
+  financial: {
+    label: 'Financial Audit',
+    scoreLabel: 'Financial Health Score',
+    pills: ['Challenge','Revenue','Food Cost','Labor','Goal'],
+    phases: [
+      { main:'Analyzing your financial profile…',        sub:'Identifying cost and margin breakdowns',           lp:0 },
+      { main:'Benchmarking your numbers…',               sub:'NRA · Cornell · Toast financial data',             lp:1 },
+      { main:'Building your financial action plan…',     sub:'Targeting highest-impact cost levers',             lp:2 },
+      { main:'Generating your financial tracker…',       sub:'Building your profitability roadmap',              lp:3 },
+    ],
+    questions: [
+      { q:"What's your biggest financial challenge right now?", opts:["Food cost is out of control","Labor cost is eating my margins","Revenue is flat or declining","Cash flow is unpredictable — feast or famine","I don't fully understand my own numbers"], ph:"Or describe it in your own words…" },
+      { q:"What's your approximate annual revenue?", opts:["Under $500K","$500K–$1M","$1M–$3M","$3M–$7M","$7M+"], ph:"Or estimate your revenue range…" },
+      { q:"What's your current food cost percentage?", opts:["Under 28%","28–32%","32–36%","36–40%","Over 40% / I'm not tracking it"], ph:"Or tell us your approximate food cost…" },
+      { q:"What's your current labor cost percentage?", opts:["Under 25%","25–30%","30–35%","35–40%","Over 40% / I'm not tracking it"], ph:"Or tell us your approximate labor cost…" },
+      { q:"What does financial health look like in 12 months?", opts:["Consistent 10–15% net profit","Predictable cash flow week to week","Prime cost under 60%","Actually understanding my P&L well enough to make decisions","Getting more profit from existing revenue without adding volume"], ph:"Or describe the financial outcome you want…" }
+    ],
+    deepQuestions: {
+      "default": [
+        { q:"Do you review your P&L statement monthly?", opts:["I don't have a formal P&L","I have one but rarely look at it","I review it monthly but don't fully understand it","Yes — I review it monthly and act on it"], ph:"Describe your current financial review process…" },
+        { q:"Where do you think the biggest profit leak is?", opts:["Food waste and over-portioning","Scheduling inefficiency — too many hours","Menu pricing is too low","Theft or untracked comps","I don't know — that's the problem"], ph:"Describe what you suspect is happening…" },
+        { q:"Do you currently use any food cost or inventory tracking?", opts:["No system — we guess","Spot-checking a few items","Basic spreadsheet tracking","Full inventory system with theoretical vs. actual tracking"], ph:"Describe your current inventory approach…" }
+      ]
+    },
+    buildMsg: (a) => `Restaurant financial assessment:
+- Biggest financial challenge: ${a[0]}
+- Annual revenue range: ${a[1]}
+- Current food cost %: ${a[2]}
+- Current labor cost %: ${a[3]}
+- 12-month financial goal: ${a[4]}
+
+Give a direct, numbers-focused diagnosis. Use the benchmarks (food cost 28-32%, labor 25-35%, prime cost under 60%) to evaluate this operator's situation specifically. Give a precise financial action plan with measurable targets.`,
+    system: SYSTEM_FINANCIAL
+  },
+
+  expansion: {
+    label: 'Expansion Audit',
+    scoreLabel: 'Expansion Readiness Score',
+    pills: ['Locations','Concern','Timeline','Capital','Vision'],
+    phases: [
+      { main:'Assessing your expansion readiness…',      sub:'Evaluating systems, leadership, and capital',      lp:0 },
+      { main:'Cross-referencing multi-unit research…',   sub:'NRA · Cornell · Sullivan · QSR Magazine data',     lp:1 },
+      { main:'Building your expansion action plan…',     sub:'Sequencing what must happen and in what order',    lp:2 },
+      { main:'Generating your expansion tracker…',       sub:'Building your pre-launch readiness roadmap',       lp:3 },
+    ],
+    questions: [
+      { q:"How many locations do you currently operate?", opts:["1 — planning first expansion","2–3 locations","4–9 locations","10+ locations"], ph:"Or describe your current footprint…" },
+      { q:"What's your biggest expansion concern?", opts:["The current location can't run without me yet","I don't have the capital or financing","I can't replicate quality at scale","I don't have the leadership pipeline","I don't know how to evaluate new sites or markets"], ph:"Or describe what's holding you back…" },
+      { q:"What's your expansion timeline?", opts:["Actively looking now","6–12 months out","12–24 months out","3+ years — in planning mode","Just exploring the idea"], ph:"Or describe where you are in the process…" },
+      { q:"What's your capital situation?", opts:["Self-funded — using operating profits","SBA loan or bank financing","Private investors or partners","Franchise model or licensing","Not sure yet — still figuring it out"], ph:"Or describe your funding approach…" },
+      { q:"What does successful expansion look like?", opts:["A second location running at the same quality","5 locations in 5 years","A brand that can franchise or license","A business I can eventually sell or exit","Enough scale to bring on real professional leadership"], ph:"Or describe your vision…" }
+    ],
+    deepQuestions: {
+      "default": [
+        { q:"Could your current location run at full quality without you for 30 days?", opts:["No — it would break down in days","It would hold but quality would slip","Mostly yes — a few things need me","Yes — it runs without me consistently"], ph:"Describe honestly what would happen…" },
+        { q:"How much of your operation is documented in writing?", opts:["Almost nothing is written down","A few key processes are documented","Most processes exist on paper","Fully documented SOPs for every position"], ph:"Describe your documentation reality…" },
+        { q:"What's your current net profit margin?", opts:["Under 5%","5–10%","10–15%","15%+","I don't know my net profit margin"], ph:"Or estimate your margin…" }
+      ]
+    },
+    buildMsg: (a) => `Restaurant expansion assessment:
+- Current locations: ${a[0]}
+- Biggest expansion concern: ${a[1]}
+- Expansion timeline: ${a[2]}
+- Capital situation: ${a[3]}
+- Expansion vision: ${a[4]}
+
+Give a direct, honest assessment of whether this operator is ready to expand and what must happen first. If they're not ready, say so clearly and give them a precise readiness-building action plan. If they are ready, give them the critical sequencing for a successful next location.`,
+    system: SYSTEM_EXPANSION
   }
-}`;
+};
+
+/* ─── STATE ─── */
+const STEP_CSS = ['sp-high','sp-med','sp-build'];
+let selectedCategory = null;
+let activeQuestions   = [];
+let current = 0;
+const answers = Array(5).fill('');
+let deepCurrent = 0;
+const deepAnswers = Array(3).fill('');
+let lastAuditData = null;
+let trackerKey    = '';
+let trackerState  = null;
 
 /* ─── API CALL ─── */
 async function callClaude(userContent, systemOverride) {
   if (!RE_WORKER_URL || RE_WORKER_URL === 'YOUR_WORKER_URL_HERE') throw new Error('no_key');
   const resp = await fetch(RE_WORKER_URL, {
     method: 'POST',
-    headers: {
-      'content-type': 'application/json',
-    },
+    headers: { 'content-type': 'application/json' },
     body: JSON.stringify({
       model: RE_MODEL,
       max_tokens: 2500,
-      system: systemOverride || RE_SYSTEM,
+      system: systemOverride || SYSTEM_OPERATIONS,
       messages: [{ role: 'user', content: userContent }],
     }),
   });
@@ -618,87 +865,260 @@ async function callClaude(userContent, systemOverride) {
   }
   const json = await resp.json();
   const text = json.content[0].text.trim();
-  // Strip markdown fences if Claude adds them despite instructions
   const clean = text.replace(/^```(?:json)?\n?/,'').replace(/\n?```$/,'');
   return JSON.parse(clean);
 }
 
-/* ─── DEEP QUESTIONS ─── */
-const DEEP_QUESTIONS = {
-  "My team can't run it without me": [
-    { q: "When you're not in the building, what typically happens?", opts: ["Things break down within a few hours","It holds but quality drops noticeably","It runs fine — just not consistently great","It runs about the same as when I'm there"], ph: "Or describe what actually happens when you're away..." },
-    { q: "How much of your operation is documented in writing?", opts: ["Almost nothing is written down","A few critical things are documented","Core processes exist on paper but aren't always followed","Most operations are fully documented and trained to"], ph: "Describe your documentation reality..." },
-    { q: "What would have to be true for you to take a full week off without checking in?", opts: ["A manager who knows everything I know","Written systems anyone could follow","Both strong leaders AND documented systems","Honestly, I don't know where to start"], ph: "Describe what you'd actually need..." }
-  ],
-  "Inconsistent standards & execution": [
-    { q: "Where does inconsistency hurt most?", opts: ["Food quality & presentation — varies shift to shift","Speed & table turns — unpredictable","Guest service — hospitality is personality-dependent","Cleanliness & sanitation — depends who's working"], ph: "Or describe where you feel it most..." },
-    { q: "How do you currently catch problems before guests experience them?", opts: ["Guests often find them before we do","Managers do informal spot checks — inconsistently","We have checklists but they aren't always used","Structured shift audits happen every single shift"], ph: "Describe your current quality control..." },
-    { q: "How are new team members trained?", opts: ["They shadow someone for a few shifts","A manager walks them through things verbally","We have a training manual they read","Certified skills sign-off required before working independently"], ph: "Describe your onboarding approach..." }
-  ],
-  "I want to grow but feel stuck": [
-    { q: "What's the real barrier to growth?", opts: ["No one who could run this without me","I'm not confident the operation is ready to replicate","Capital and financial readiness isn't there","I don't know which problem to fix first"], ph: "Describe what's actually standing in the way..." },
-    { q: "If you opened a second location tomorrow, what breaks first?", opts: ["Leadership — I'd have to be in two places","Standards — quality drops at both locations","Training — I couldn't build two teams simultaneously","Finances — margins aren't strong enough"], ph: "Describe your biggest vulnerability..." },
-    { q: "How close is your operation to running without you?", opts: ["Very far — I'm involved in everything daily","Getting there — a few people can handle most things","Pretty close — it holds together for a few days","Essentially ready — working on capital and timing"], ph: "Describe where you actually are..." }
-  ],
-  "High turnover / bad culture": [
-    { q: "When does most of your turnover happen?", opts: ["In the first 30 days — before they're settled","3–6 months in — once excitement fades","When a manager leaves — it ripples through the team","It's constant at all tenure levels"], ph: "Describe the turnover pattern..." },
-    { q: "How would your hourly team honestly describe working here?", opts: ["Chaotic and stressful — nobody knows what to expect","Fine, but nothing that makes them want to stay","Good most days but varies by shift and manager","A place people are genuinely proud to be"], ph: "What do you think they'd honestly say..." },
-    { q: "What happens when one of your best people leaves?", opts: ["We scramble — their knowledge walks out","We promote someone who isn't ready","We have a pipeline but the transition takes too long","We have succession plans in place"], ph: "Describe what that transition looks like..." }
-  ],
-  "Guest experience is suffering": [
-    { q: "Where does the guest experience most frequently break down?", opts: ["Consistency — great one visit, mediocre the next","Speed — too slow during rushes","Knowledge — staff can't speak to the menu confidently","Hospitality — correct but guests don't feel welcomed"], ph: "Describe the most common complaint or pattern..." },
-    { q: "How do guests communicate that something went wrong?", opts: ["Online reviews — after they've already left","They tell a manager directly in the moment","They tell a server but it rarely makes it to management","They just don't come back — declining visits"], ph: "Describe how you usually find out about problems..." },
-    { q: "What happens when a guest has a bad experience?", opts: ["Depends entirely on who's working that shift","A manager handles it but the approach is inconsistent","We have a recovery process but it isn't always followed","Every team member is empowered to make it right immediately"], ph: "Describe what service recovery looks like..." }
-  ]
-};
+/* ─── SELECT CATEGORY ─── */
+function selectCategory(key) {
+  selectedCategory = CATEGORIES[key];
+  activeQuestions  = selectedCategory.questions;
+  current = 0;
+  answers.fill('');
 
-/* ─── QUIZ STATE ─── */
-const questions = [
-  { q: "What's your biggest challenge right now?", opts: ["My team can't run it without me","Inconsistent standards & execution","I want to grow but feel stuck","High turnover / bad culture","Guest experience is suffering"], ph: "Or describe it in your own words..." },
-  { q: "How many locations do you operate?", opts: ["1 location","2–3 locations","4–9 locations","10+"], ph: "Or tell us more about your setup..." },
-  { q: "How long have you been in this role?", opts: ["Under 1 year","1–3 years","3–7 years","7+ years"], ph: "Or add any context..." },
-  { q: "What does your team structure look like?", opts: ["Just me and hourly staff","1–2 managers I rely on","Full management team","No real structure yet"], ph: "Or describe your team..." },
-  { q: "What does winning look like in the next 12 months?", opts: ["Step back without things falling apart","Open another location","Build a team that leads itself","Get consistent — stop fighting fires","Turn this into something I'm proud of"], ph: "Or describe it in your own words..." }
-];
+  // Update card title
+  document.getElementById('cardTitle').textContent = selectedCategory.label;
 
-const STEP_CSS = ['sp-high','sp-med','sp-build'];
-let current = 0;
-const answers = Array(questions.length).fill('');
-let deepCurrent = 0;
-const deepAnswers = Array(3).fill('');
-let lastAuditData = null;
-let trackerKey = '';
-let trackerState = null;
+  // Update score label
+  document.getElementById('scoreLabelText').textContent = selectedCategory.scoreLabel;
 
-/* ─── TRACKER: LOCALSTORAGE ─── */
-function saveTracker() {
-  try { localStorage.setItem(trackerKey, JSON.stringify(trackerState)); } catch(e) {}
-}
-function loadTracker() {
-  try { return JSON.parse(localStorage.getItem(trackerKey)) || null; } catch(e) { return null; }
+  // Update pill labels
+  const pills = selectedCategory.pills;
+  for (let i = 0; i < 5; i++) {
+    const el = document.getElementById('pill-' + i);
+    if (el) el.querySelector('.pill-lbl').textContent = pills[i] || ('Q' + (i+1));
+  }
+
+  // Show quiz UI
+  document.getElementById('re-category').style.display = 'none';
+  document.getElementById('re-quiz').style.display     = 'block';
+  document.getElementById('progWrap').style.display    = 'block';
+  document.getElementById('stepPills').style.display   = 'flex';
+
+  renderStep();
 }
 
-/* ─── TRACKER: RENDER ─── */
+/* ─── RENDER STEP ─── */
+function renderStep() {
+  for (let i = 0; i < 5; i++) {
+    document.getElementById('ps' + i).className    = 'prog-seg'  + (i < current ? ' done' : i === current ? ' active' : '');
+    document.getElementById('pill-' + i).className = 'step-pill' + (i < current ? ' done' : i === current ? ' active' : '');
+  }
+  const pct = Math.round((current / 5) * 100);
+  document.getElementById('prog-lbl').textContent = `Question ${current + 1} of 5`;
+  document.getElementById('prog-pct').textContent = `${pct}% complete`;
+
+  const q      = activeQuestions[current];
+  const saved  = answers[current];
+  const isOpt  = q.opts && q.opts.includes(saved);
+  const textOnly = !q.opts || q.opts.length === 0;
+
+  const optsHtml = textOnly ? '' :
+    `<div class="opts-grid" id="opts-wrap">${q.opts.map(o =>
+      `<button class="opt-btn${saved===o?' sel':''}" data-val="${o.replace(/"/g,'&quot;')}" onclick="selectOpt(this)">${o}</button>`
+    ).join('')}</div>
+    <div class="or-divider">or write your own</div>`;
+
+  document.getElementById('re-step-content').innerHTML = `
+    <div class="q-block">
+      <div class="q-text">${q.q}</div>
+      ${optsHtml}
+      <textarea class="q-textarea${textOnly?' text-only':''}" id="re-ta" placeholder="${q.ph}">${isOpt ? '' : saved}</textarea>
+      <div class="nav-row">
+        ${current > 0
+          ? '<button class="btn-back-card" onclick="goBack()">← Back</button>'
+          : '<button class="btn-back-card" onclick="goBackToCategory()">← Categories</button>'}
+        <button class="btn-next-card" onclick="goNext()">${current === 4 ? 'Run My Audit →' : 'Next →'}</button>
+      </div>
+    </div>`;
+
+  if (!textOnly) {
+    document.getElementById('re-ta').addEventListener('input', () => {
+      document.querySelectorAll('#opts-wrap .opt-btn').forEach(b => b.classList.remove('sel'));
+    });
+  }
+}
+
+function goBackToCategory() {
+  document.getElementById('re-quiz').style.display   = 'none';
+  document.getElementById('progWrap').style.display  = 'none';
+  document.getElementById('stepPills').style.display = 'none';
+  document.getElementById('re-category').style.display = 'block';
+  document.getElementById('cardTitle').textContent   = 'The Excellence Audit';
+  selectedCategory = null;
+  current = 0;
+  answers.fill('');
+}
+
+function selectOpt(el) {
+  document.querySelectorAll('#opts-wrap .opt-btn').forEach(b => b.classList.remove('sel'));
+  el.classList.add('sel');
+  document.getElementById('re-ta').value = '';
+}
+function getAnswer() {
+  const sel = document.querySelector('#opts-wrap .opt-btn.sel');
+  return sel ? sel.dataset.val : (document.getElementById('re-ta')?.value.trim() || '');
+}
+function goNext() {
+  const ans = getAnswer();
+  if (!ans) {
+    const ta = document.getElementById('re-ta');
+    ta.style.borderColor = '#7c3aed'; ta.style.boxShadow = '0 0 0 3px rgba(124,58,237,.15)'; ta.focus();
+    setTimeout(() => { ta.style.borderColor = '#2d1a4a'; ta.style.boxShadow = ''; }, 1800);
+    return;
+  }
+  answers[current] = ans;
+  if (current < 4) { current++; renderStep(); }
+  else { runAudit(); }
+}
+function goBack() { answers[current] = getAnswer(); current--; renderStep(); }
+
+/* ─── RUN AUDIT ─── */
+async function runAudit() {
+  document.getElementById('re-quiz').style.display   = 'none';
+  document.getElementById('progWrap').style.display  = 'none';
+  document.getElementById('stepPills').style.display = 'none';
+  document.getElementById('re-load').style.display   = 'block';
+  document.getElementById('cardBadge').textContent   = 'Running your audit…';
+
+  const PHASES = selectedCategory.phases;
+
+  // Set loading phase text
+  PHASES.forEach((p, i) => {
+    const el = document.getElementById('lp' + i + '-text');
+    if (el) el.textContent = p.main.replace('…','');
+  });
+
+  let phaseIdx = 0;
+  const phaseTimer = setInterval(() => {
+    if (phaseIdx > 0) {
+      const prev = document.getElementById('lp' + (phaseIdx - 1));
+      if (prev) prev.className = 'lp-item done';
+    }
+    if (phaseIdx < PHASES.length) {
+      const p = PHASES[phaseIdx];
+      document.getElementById('load-main').textContent = p.main;
+      document.getElementById('load-sub').textContent  = p.sub;
+      const el = document.getElementById('lp' + p.lp);
+      if (el) el.className = 'lp-item active';
+      phaseIdx++;
+    } else { clearInterval(phaseTimer); }
+  }, 1600);
+
+  try {
+    const data = await callClaude(selectedCategory.buildMsg(answers), selectedCategory.system);
+    lastAuditData = data;
+    clearInterval(phaseTimer);
+    await new Promise(r => setTimeout(r, 700));
+    document.getElementById('re-load').style.display = 'none';
+    renderAuditResults(data);
+  } catch(err) {
+    clearInterval(phaseTimer);
+    document.getElementById('re-load').style.display = 'none';
+    showError(err.message);
+  }
+}
+
+/* ─── ERROR STATE ─── */
+function showError(msg) {
+  document.getElementById('re-quiz').style.display   = 'block';
+  document.getElementById('progWrap').style.display  = 'block';
+  document.getElementById('stepPills').style.display = 'flex';
+  current = 0; renderStep();
+  const existing = document.getElementById('re-error');
+  if (existing) existing.remove();
+  const el = document.createElement('div');
+  el.id = 're-error'; el.className = 're-error';
+  el.innerHTML = msg === 'no_key'
+    ? `<strong>AI not yet configured.</strong> The Cloudflare Worker URL has not been set up yet.`
+    : `<strong>Something went wrong:</strong> ${msg}. Please try again.`;
+  document.getElementById('re-step-content').before(el);
+  document.getElementById('cardBadge').textContent = 'Free · No commitment';
+}
+
+/* ─── RENDER RESULTS ─── */
+function renderAuditResults(data) {
+  const score = Math.max(10, Math.min(95, data.readiness_score || 45));
+  const scoreColor = score < 40
+    ? 'linear-gradient(90deg,#7f1d1d,#ef4444)'
+    : score < 62
+    ? 'linear-gradient(90deg,#78350f,#f97316)'
+    : 'linear-gradient(90deg,#4c1d95,#7c3aed)';
+  document.getElementById('scoreNum').innerHTML = `${score}<span> / 100</span>`;
+  document.getElementById('scoreBenchLabel').textContent = score;
+  setTimeout(() => {
+    const f = document.getElementById('gaugeFill');
+    f.style.width = score + '%';
+    f.style.background = scoreColor;
+  }, 100);
+
+  const dpEl = document.getElementById('dataPoints');
+  dpEl.innerHTML = (data.benchmarks || []).slice(0,2).map(d => `
+    <div class="dp-card">
+      <div class="dp-num">${d.stat}</div>
+      <div class="dp-label">${d.label}</div>
+      <div class="dp-bar-track"><div class="dp-bar-fill" style="width:0%" data-target="${Math.min(d.bar||50,100)}"></div></div>
+      <div class="dp-source">${d.source}</div>
+    </div>`).join('');
+  setTimeout(() => { dpEl.querySelectorAll('.dp-bar-fill').forEach(b => { b.style.width = b.dataset.target + '%'; }); }, 300);
+
+  document.getElementById('rrf').innerHTML =
+    `<strong style="display:block;font-family:'Cormorant Garamond',serif;font-size:1.12rem;color:#f5f0ff;line-height:1.3;margin-bottom:10px;">${data.headline || ''}</strong>${data.reframe || ''}`;
+
+  const rcEl = document.getElementById('rootCauses');
+  if (data.root_causes && data.root_causes.length) {
+    rcEl.innerHTML = `<div class="result-section-label" style="margin-bottom:8px;">Root Causes</div>` +
+      data.root_causes.map(rc => `<div class="rc-item"><span class="rc-bullet">▸</span>${rc}</div>`).join('');
+  }
+
+  const sc = document.getElementById('rsteps');
+  sc.innerHTML = '';
+  (data.action_plan || []).forEach((s, i) => {
+    sc.innerHTML += `
+      <div class="rstep">
+        <div class="rsn">${i + 1}</div>
+        <div style="flex:1;">
+          <div class="step-priority ${STEP_CSS[i]||'sp-build'}">${s.priority} · ${s.timeline}</div>
+          <div class="rst">${s.title}</div>
+          <div class="rsb">${s.body}</div>
+          ${s.success_metric ? `<div class="step-metric">✓ &nbsp;${s.success_metric}</div>` : ''}
+        </div>
+      </div>`;
+  });
+
+  document.getElementById('rarct').textContent  = data.arc?.text    || '';
+  document.getElementById('rarctl').textContent = data.arc?.tagline || '';
+
+  document.getElementById('re-result').style.display = 'block';
+  document.getElementById('cardBadge').textContent   = 'Diagnosis ready';
+  lucide.createIcons();
+  initTracker(data.action_plan || []);
+  setTimeout(() => { document.getElementById('re-result').scrollIntoView({ behavior:'smooth', block:'start' }); }, 200);
+}
+
+/* ─── TRACKER ─── */
+function saveTracker() { try { localStorage.setItem(trackerKey, JSON.stringify(trackerState)); } catch(e) {} }
+function loadTracker() { try { return JSON.parse(localStorage.getItem(trackerKey)) || null; } catch(e) { return null; } }
+
 function initTracker(steps) {
-  trackerKey = 're_' + btoa((answers[0]||'').slice(0,12) + (answers[4]||'').slice(0,12)).slice(0,16);
+  trackerKey = 're_' + btoa((answers[0]||'').slice(0,10) + (answers[4]||'').slice(0,10)).slice(0,16);
   const saved = loadTracker();
   trackerState = saved || {
     steps: steps.map(s => ({ title:s.title, checks:[false,false,false,false], notes:'', startedAt:null })),
     created: new Date().toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'})
   };
-  // Sync titles in case this is a restored session
   steps.forEach((s,i) => { if (trackerState.steps[i]) trackerState.steps[i].title = s.title; });
 
   const CHECK_LABELS = ['Written it down & committed','Started implementing','Running consistently','Built into operations'];
   const TAB_META = [
-    { pr:'Do This Week', tl:'Days 1–7', cs:'sp-high' },
-    { pr:'This Month',   tl:'Days 8–30', cs:'sp-med'  },
-    { pr:'90 Days',      tl:'Days 30–90', cs:'sp-build'}
+    { pr:'Do This Week', tl:'Days 1–7',  cs:'sp-high'  },
+    { pr:'This Month',   tl:'Days 8–30', cs:'sp-med'   },
+    { pr:'90 Days',      tl:'Days 30–90',cs:'sp-build' }
   ];
 
   document.getElementById('trackerPanels').innerHTML = steps.map((s, i) => {
     const ts = trackerState.steps[i] || { checks:[false,false,false,false], notes:'', startedAt:null };
-    const m = TAB_META[i] || TAB_META[2];
+    const m  = TAB_META[i] || TAB_META[2];
     const checks = CHECK_LABELS.map((lbl,ci) => `
       <label class="tcheck">
         <input type="checkbox" ${ts.checks[ci]?'checked':''} onchange="handleCheck(${i},${ci},this.checked)">
@@ -734,231 +1154,22 @@ function handleCheck(si, ci, val) {
     const stamp = document.getElementById('tstamp'+si);
     if (stamp) { stamp.textContent = 'Started '+trackerState.steps[si].startedAt; stamp.classList.add('active'); }
   }
-  saveTracker();
-  updateTrackerProgress();
+  saveTracker(); updateTrackerProgress();
 }
-
-function handleNotes(si, val) {
-  trackerState.steps[si].notes = val;
-  saveTracker();
-}
-
+function handleNotes(si, val) { trackerState.steps[si].notes = val; saveTracker(); }
 function updateTrackerProgress() {
   const allChecks = trackerState.steps.flatMap(s => s.checks);
   const done = allChecks.filter(Boolean).length;
   const total = allChecks.length;
   const pct = Math.round((done / total) * 100);
-  const circ = 2 * Math.PI * 18; // r=18 → 113.1
+  const circ = 2 * Math.PI * 18;
   document.getElementById('progressPct').textContent = pct + '%';
   document.getElementById('progressRingFill').style.strokeDashoffset = circ * (1 - pct / 100);
   document.getElementById('trackerDoneCount').textContent = done;
 }
-
 function showTrackerTab(i) {
-  document.querySelectorAll('.tracker-tab').forEach((t,j) => t.classList.toggle('active', i===j));
+  document.querySelectorAll('.tracker-tab').forEach((t,j)   => t.classList.toggle('active', i===j));
   document.querySelectorAll('.tracker-panel').forEach((p,j) => p.classList.toggle('active', i===j));
-}
-
-/* ─── RENDER AUDIT RESULTS ─── */
-function renderAuditResults(data) {
-  /* Score gauge */
-  const score = Math.max(10, Math.min(95, data.readiness_score || 45));
-  const scoreColor = score < 40
-    ? 'linear-gradient(90deg,#7f1d1d,#ef4444)'
-    : score < 62
-    ? 'linear-gradient(90deg,#78350f,#f97316)'
-    : 'linear-gradient(90deg,#4c1d95,#7c3aed)';
-  document.getElementById('scoreNum').innerHTML = `${score}<span> / 100</span>`;
-  document.getElementById('scoreBenchLabel').textContent = score;
-  setTimeout(() => {
-    const f = document.getElementById('gaugeFill');
-    f.style.width = score + '%';
-    f.style.background = scoreColor;
-  }, 100);
-
-  /* Benchmark cards */
-  const dpEl = document.getElementById('dataPoints');
-  dpEl.innerHTML = (data.benchmarks || []).slice(0,2).map(d => `
-    <div class="dp-card">
-      <div class="dp-num">${d.stat}</div>
-      <div class="dp-label">${d.label}</div>
-      <div class="dp-bar-track"><div class="dp-bar-fill" style="width:0%" data-target="${Math.min(d.bar||50,100)}"></div></div>
-      <div class="dp-source">${d.source}</div>
-    </div>`).join('');
-  setTimeout(() => { dpEl.querySelectorAll('.dp-bar-fill').forEach(b => { b.style.width = b.dataset.target + '%'; }); }, 300);
-
-  /* Reframe */
-  document.getElementById('rrf').innerHTML =
-    `<strong style="display:block;font-family:'Cormorant Garamond',serif;font-size:1.12rem;color:#f5f0ff;line-height:1.3;margin-bottom:10px;">${data.headline || ''}</strong>${data.reframe || ''}`;
-
-  /* Root causes */
-  const rcEl = document.getElementById('rootCauses');
-  if (data.root_causes && data.root_causes.length) {
-    rcEl.innerHTML = `<div class="result-section-label" style="margin-bottom:8px;">Root Causes</div>` +
-      data.root_causes.map(rc => `<div class="rc-item"><span class="rc-bullet">▸</span>${rc}</div>`).join('');
-  }
-
-  /* Action steps */
-  const sc = document.getElementById('rsteps');
-  sc.innerHTML = '';
-  (data.action_plan || []).forEach((s, i) => {
-    sc.innerHTML += `
-      <div class="rstep">
-        <div class="rsn">${i + 1}</div>
-        <div style="flex:1;">
-          <div class="step-priority ${STEP_CSS[i]||'sp-build'}">${s.priority} · ${s.timeline}</div>
-          <div class="rst">${s.title}</div>
-          <div class="rsb">${s.body}</div>
-          ${s.success_metric ? `<div class="step-metric">✓ &nbsp;${s.success_metric}</div>` : ''}
-        </div>
-      </div>`;
-  });
-
-  /* Arc */
-  document.getElementById('rarct').textContent  = data.arc?.text    || '';
-  document.getElementById('rarctl').textContent = data.arc?.tagline || '';
-
-  /* Show result */
-  document.getElementById('re-result').style.display = 'block';
-  document.getElementById('cardBadge').textContent   = 'Diagnosis ready';
-  document.getElementById('stepPills').style.display = 'none';
-  lucide.createIcons();
-
-  /* Init tracker */
-  initTracker(data.action_plan || []);
-
-  /* Scroll to results */
-  setTimeout(() => {
-    document.getElementById('re-result').scrollIntoView({ behavior:'smooth', block:'start' });
-  }, 200);
-}
-
-/* ─── RENDER STEP ─── */
-function renderStep() {
-  for (let i = 0; i < 5; i++) {
-    document.getElementById('ps' + i).className   = 'prog-seg'   + (i < current ? ' done' : i === current ? ' active' : '');
-    document.getElementById('pill-' + i).className = 'step-pill' + (i < current ? ' done' : i === current ? ' active' : '');
-  }
-  const pct = Math.round((current / questions.length) * 100);
-  document.getElementById('prog-lbl').textContent = `Question ${current + 1} of ${questions.length}`;
-  document.getElementById('prog-pct').textContent = `${pct}% complete`;
-
-  const q = questions[current];
-  const saved = answers[current];
-  const isOpt = q.opts.includes(saved);
-  const optsHtml = q.opts.map(o =>
-    `<button class="opt-btn${saved===o?' sel':''}" data-val="${o.replace(/"/g,'&quot;')}" onclick="selectOpt(this)">${o}</button>`
-  ).join('');
-
-  document.getElementById('re-step-content').innerHTML = `
-    <div class="q-block">
-      <div class="q-text">${q.q}</div>
-      <div class="opts-grid" id="opts-wrap">${optsHtml}</div>
-      <div class="or-divider">or write your own</div>
-      <textarea class="q-textarea" id="re-ta" placeholder="${q.ph}">${isOpt ? '' : saved}</textarea>
-      <div class="nav-row">
-        ${current > 0 ? '<button class="btn-back-card" onclick="goBack()">← Back</button>' : '<span></span>'}
-        <button class="btn-next-card" onclick="goNext()">${current === questions.length - 1 ? 'Run My Audit →' : 'Next →'}</button>
-      </div>
-    </div>`;
-
-  document.getElementById('re-ta').addEventListener('input', () => {
-    document.querySelectorAll('#opts-wrap .opt-btn').forEach(b => b.classList.remove('sel'));
-  });
-}
-
-function selectOpt(el) {
-  document.querySelectorAll('#opts-wrap .opt-btn').forEach(b => b.classList.remove('sel'));
-  el.classList.add('sel');
-  document.getElementById('re-ta').value = '';
-}
-function getAnswer() {
-  const sel = document.querySelector('#opts-wrap .opt-btn.sel');
-  return sel ? sel.dataset.val : document.getElementById('re-ta').value.trim();
-}
-function goNext() {
-  const ans = getAnswer();
-  if (!ans) {
-    const ta = document.getElementById('re-ta');
-    ta.style.borderColor = '#7c3aed'; ta.style.boxShadow = '0 0 0 3px rgba(124,58,237,.15)'; ta.focus();
-    setTimeout(() => { ta.style.borderColor = '#2d1a4a'; ta.style.boxShadow = ''; }, 1800);
-    return;
-  }
-  answers[current] = ans;
-  if (current < questions.length - 1) { current++; renderStep(); }
-  else { runAudit(); }
-}
-function goBack() { answers[current] = getAnswer(); current--; renderStep(); }
-
-/* ─── RUN AUDIT ─── */
-async function runAudit() {
-  document.getElementById('re-quiz').style.display   = 'none';
-  document.getElementById('progWrap').style.display  = 'none';
-  document.getElementById('re-load').style.display   = 'block';
-  document.getElementById('cardBadge').textContent   = 'Running your audit…';
-
-  /* Phased loading animation */
-  const PHASES = [
-    { main:'Analyzing your challenge area…',          sub:'Identifying primary bottleneck',             lp:0 },
-    { main:'Cross-referencing 14 industry studies…',  sub:'BLS · Cornell · Harvard · Gallup · NRA',    lp:1 },
-    { main:'Building your precision action plan…',    sub:'Matching to your scale and team structure',  lp:2 },
-    { main:'Generating your progress tracker…',       sub:'Personalizing your 30/60/90-day roadmap',   lp:3 },
-  ];
-  let phaseIdx = 0;
-  const phaseTimer = setInterval(() => {
-    if (phaseIdx > 0) {
-      const prev = document.getElementById('lp' + (phaseIdx - 1));
-      if (prev) prev.className = 'lp-item done';
-    }
-    if (phaseIdx < PHASES.length) {
-      const p = PHASES[phaseIdx];
-      document.getElementById('load-main').textContent = p.main;
-      document.getElementById('load-sub').textContent  = p.sub;
-      const el = document.getElementById('lp' + p.lp);
-      if (el) el.className = 'lp-item active';
-      phaseIdx++;
-    } else { clearInterval(phaseTimer); }
-  }, 1600);
-
-  const userMsg = `Restaurant operator assessment:
-- Primary challenge: ${answers[0] || 'Not specified'}
-- Locations operated: ${answers[1] || '1 location'}
-- Years in this role: ${answers[2] || '1–3 years'}
-- Team structure: ${answers[3] || 'Not specified'}
-- 12-month goal: ${answers[4] || 'Not specified'}
-
-Give a direct, data-driven diagnosis and a precise, actionable plan for this specific operator.`;
-
-  try {
-    const data = await callClaude(userMsg);
-    lastAuditData = data;
-    clearInterval(phaseTimer);
-    // Let the last phase animation settle
-    await new Promise(r => setTimeout(r, 700));
-    document.getElementById('re-load').style.display = 'none';
-    renderAuditResults(data);
-  } catch(err) {
-    clearInterval(phaseTimer);
-    document.getElementById('re-load').style.display = 'none';
-    showError(err.message);
-  }
-}
-
-/* ─── ERROR STATE ─── */
-function showError(msg) {
-  document.getElementById('re-quiz').style.display  = 'block';
-  document.getElementById('progWrap').style.display = 'block';
-  current = 0; renderStep();
-  const existing = document.getElementById('re-error');
-  if (existing) existing.remove();
-  const el = document.createElement('div');
-  el.id = 're-error';
-  el.className = 're-error';
-  el.innerHTML = msg === 'no_key'
-    ? `<strong>AI not yet configured.</strong> The Cloudflare Worker URL has not been set up yet. This feature will be live shortly.`
-    : `<strong>Something went wrong:</strong> ${msg}. Please try again.`;
-  document.getElementById('re-step-content').before(el);
-  document.getElementById('cardBadge').textContent = 'Free · No commitment';
 }
 
 /* ─── DIG DEEPER ─── */
@@ -972,10 +1183,20 @@ function startDig() {
   document.getElementById('re-deep-quiz').scrollIntoView({ behavior:'smooth', block:'start' });
 }
 
+function getDeepQs() {
+  const catKey = Object.keys(CATEGORIES).find(k => CATEGORIES[k] === selectedCategory) || 'operations';
+  const dqs = selectedCategory?.deepQuestions;
+  if (!dqs) return CATEGORIES.operations.deepQuestions['default'];
+  // For operations, try to match by first answer, fall back to default
+  if (catKey === 'operations') {
+    return dqs[answers[0]] || dqs['default'] || Object.values(dqs)[0];
+  }
+  return dqs['default'] || Object.values(dqs)[0];
+}
+
 function renderDeepStep() {
-  const challenge = answers[0] || "My team can't run it without me";
-  const dqs = DEEP_QUESTIONS[challenge] || Object.values(DEEP_QUESTIONS)[0];
-  const q = dqs[deepCurrent];
+  const dqs = getDeepQs();
+  const q   = dqs[deepCurrent];
   const saved = deepAnswers[deepCurrent];
   const isOpt = q.opts.includes(saved);
   document.getElementById('deep-q-label').textContent = `Deeper Question ${deepCurrent + 1} of 3`;
@@ -1020,7 +1241,6 @@ function goDeepNext() {
 }
 function goDeepBack() { deepAnswers[deepCurrent] = getDeepAnswer(); deepCurrent--; renderDeepStep(); }
 
-/* ─── DEEP AUDIT ─── */
 async function runDeepAudit() {
   document.getElementById('re-deep-quiz').style.display = 'none';
   document.getElementById('re-load').style.display      = 'block';
@@ -1028,24 +1248,20 @@ async function runDeepAudit() {
   document.getElementById('load-sub').textContent  = 'Synthesizing all 8 answers';
   ['lp0','lp1','lp2','lp3'].forEach(id => { document.getElementById(id).className = 'lp-item'; });
 
-  const deepMsg = `Full operator assessment — deep dive:
+  const deepMsg = `Full assessment — deep dive:
 
 Initial 5 answers:
-- Primary challenge: ${answers[0]}
-- Locations operated: ${answers[1]}
-- Years in this role: ${answers[2]}
-- Team structure: ${answers[3]}
-- 12-month goal: ${answers[4]}
+${selectedCategory.buildMsg(answers)}
 
 3 targeted follow-up answers:
 - ${deepAnswers[0]}
 - ${deepAnswers[1]}
 - ${deepAnswers[2]}
 
-This is a second, deeper diagnosis. The operator gave you more specific detail. Be even more surgical — identify the precise root cause given what they've now told you. The action plan should be more targeted and specific than the initial one. Use the same JSON structure.`;
+This is a second, deeper diagnosis. Be even more surgical — identify the precise root cause given all 8 answers combined. The action plan should be more targeted and specific than the initial one. Use the same JSON structure.`;
 
   try {
-    const data = await callClaude(deepMsg);
+    const data = await callClaude(deepMsg, selectedCategory.system);
     document.getElementById('re-load').style.display = 'none';
     renderDeepResults(data);
   } catch(err) {
@@ -1077,21 +1293,21 @@ function renderDeepResults(data) {
 
 /* ─── DOWNLOAD TRACKER ─── */
 function downloadTracker() {
-  const challenge = answers[0] || 'Your Challenge';
-  const goal      = answers[4] || 'Your Goal';
-  const steps     = lastAuditData?.action_plan || [];
-  const today = new Date().toLocaleDateString('en-US',{month:'long',day:'numeric',year:'numeric'});
-  const d30   = new Date(Date.now()+30*864e5).toLocaleDateString('en-US',{month:'short',day:'numeric'});
-  const d60   = new Date(Date.now()+60*864e5).toLocaleDateString('en-US',{month:'short',day:'numeric'});
-  const d90   = new Date(Date.now()+90*864e5).toLocaleDateString('en-US',{month:'short',day:'numeric'});
+  const label  = selectedCategory?.label || 'Excellence';
+  const goal   = answers[4] || 'Your Goal';
+  const steps  = lastAuditData?.action_plan || [];
+  const today  = new Date().toLocaleDateString('en-US',{month:'long',day:'numeric',year:'numeric'});
+  const d30    = new Date(Date.now()+30*864e5).toLocaleDateString('en-US',{month:'short',day:'numeric'});
+  const d60    = new Date(Date.now()+60*864e5).toLocaleDateString('en-US',{month:'short',day:'numeric'});
+  const d90    = new Date(Date.now()+90*864e5).toLocaleDateString('en-US',{month:'short',day:'numeric'});
   const stepMeta = [
-    {pr:'Do This Week',tl:'Days 1-7',col:'#dc2626',bg:'#fef2f2',bc:'#fecaca'},
-    {pr:'Build This Month',tl:'Days 8-30',col:'#ea580c',bg:'#fff7ed',bc:'#fed7aa'},
-    {pr:'Build to Scale',tl:'Days 30-90',col:'#7c3aed',bg:'#f5f3ff',bc:'#ddd6fe'}
+    {pr:'Do This Week',   tl:'Days 1-7',  col:'#dc2626',bg:'#fef2f2',bc:'#fecaca'},
+    {pr:'Build This Month',tl:'Days 8-30', col:'#ea580c',bg:'#fff7ed',bc:'#fed7aa'},
+    {pr:'Build to Scale', tl:'Days 30-90',col:'#7c3aed',bg:'#f5f3ff',bc:'#ddd6fe'}
   ];
   const checks = ['Written it down & committed','Started implementing','Running consistently','Built into operations'];
   const stepsHTML = steps.map((s,i) => {
-    const m = stepMeta[i]||stepMeta[2];
+    const m  = stepMeta[i]||stepMeta[2];
     const ts = trackerState?.steps?.[i];
     return `<div style="background:#fff;border:1px solid #e5e7eb;border-radius:12px;padding:24px 28px;margin-bottom:16px;">
       <div style="display:flex;gap:16px;">
@@ -1102,35 +1318,31 @@ function downloadTracker() {
           <p style="font-size:13px;color:#4b5563;line-height:1.75;margin:0 0 10px;">${s.body}</p>
           ${s.success_metric?`<div style="font-size:12px;color:#7c3aed;padding:7px 11px;background:#f5f3ff;border-radius:6px;margin-bottom:12px;">✓ ${s.success_metric}</div>`:''}
           ${checks.map((lbl,ci)=>`<div style="display:flex;align-items:center;gap:8px;margin-bottom:7px;"><input type="checkbox" ${ts?.checks?.[ci]?'checked':''} style="width:14px;height:14px;accent-color:#7c3aed;"><span style="font-size:13px;color:${ts?.checks?.[ci]?'#9ca3af':'#374151'};${ts?.checks?.[ci]?'text-decoration:line-through;':''}">${lbl}</span></div>`).join('')}
-          <div style="margin-top:12px;"><div style="font-size:11px;font-weight:600;color:#374151;margin-bottom:4px;">Notes & Learnings:</div><div style="min-height:48px;border:1px solid #e5e7eb;border-radius:6px;padding:8px 10px;font-size:13px;color:${ts?.notes?'#374151':'#9ca3af'};" contenteditable="true">${ts?.notes||'Click to add notes...'}</div></div>
+          <div style="margin-top:12px;"><div style="font-size:11px;font-weight:600;color:#374151;margin-bottom:4px;">Notes:</div><div style="min-height:48px;border:1px solid #e5e7eb;border-radius:6px;padding:8px 10px;font-size:13px;color:${ts?.notes?'#374151':'#9ca3af'};">${ts?.notes||'—'}</div></div>
           ${ts?.startedAt?`<div style="font-size:11px;color:#c9a84c;margin-top:8px;">Started: ${ts.startedAt}</div>`:''}
         </div>
       </div>
     </div>`;
   }).join('');
 
-  const html = `<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Excellence Action Plan</title><style>*{box-sizing:border-box;margin:0;padding:0}body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#f9fafb;-webkit-font-smoothing:antialiased}@media print{body{background:#fff}.no-print{display:none!important}}</style></head><body>
+  const html = `<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>${label} Action Plan</title><style>*{box-sizing:border-box;margin:0;padding:0}body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#f9fafb;-webkit-font-smoothing:antialiased}@media print{body{background:#fff}.no-print{display:none!important}}</style></head><body>
 <div style="max-width:780px;margin:0 auto;padding:32px 24px;">
   <div style="background:linear-gradient(135deg,#1e0a3c,#0d0618);border-radius:16px;padding:32px 36px;margin-bottom:28px;color:#fff;">
     <div style="font-size:10px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:#a855f7;margin-bottom:10px;">Restaurant Excellence</div>
-    <div style="font-family:Georgia,serif;font-size:2rem;font-weight:700;line-height:1.1;margin-bottom:8px;">Your 30/60/90-Day Action Plan</div>
-    <div style="font-size:13px;color:rgba(255,255,255,.5);margin-bottom:20px;">Generated ${today}</div>
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
-      <div style="background:rgba(255,255,255,.07);border-radius:8px;padding:12px 14px;"><div style="font-size:10px;color:rgba(255,255,255,.4);text-transform:uppercase;letter-spacing:.1em;margin-bottom:4px;">Primary Challenge</div><div style="font-size:13px;font-weight:600;">${challenge}</div></div>
-      <div style="background:rgba(255,255,255,.07);border-radius:8px;padding:12px 14px;"><div style="font-size:10px;color:rgba(255,255,255,.4);text-transform:uppercase;letter-spacing:.1em;margin-bottom:4px;">12-Month Goal</div><div style="font-size:13px;font-weight:600;">${goal}</div></div>
-    </div>
+    <div style="font-family:Georgia,serif;font-size:2rem;font-weight:700;line-height:1.1;margin-bottom:8px;">${label} — Action Plan</div>
+    <div style="font-size:13px;color:rgba(255,255,255,.5);margin-bottom:16px;">Generated ${today}</div>
+    <div style="background:rgba(255,255,255,.07);border-radius:8px;padding:12px 14px;"><div style="font-size:10px;color:rgba(255,255,255,.4);text-transform:uppercase;letter-spacing:.1em;margin-bottom:4px;">12-Month Goal</div><div style="font-size:13px;font-weight:600;">${goal}</div></div>
   </div>
   <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-bottom:28px;">
     <div style="background:#fff;border:2px solid #fecaca;border-radius:10px;padding:14px;text-align:center;"><div style="font-size:10px;font-weight:700;color:#dc2626;letter-spacing:.1em;text-transform:uppercase;margin-bottom:4px;">Do This Week</div><div style="font-size:12px;color:#6b7280;">Now → ${d30}</div></div>
     <div style="background:#fff;border:2px solid #fed7aa;border-radius:10px;padding:14px;text-align:center;"><div style="font-size:10px;font-weight:700;color:#ea580c;letter-spacing:.1em;text-transform:uppercase;margin-bottom:4px;">Build This Month</div><div style="font-size:12px;color:#6b7280;">${d30} → ${d60}</div></div>
     <div style="background:#fff;border:2px solid #ddd6fe;border-radius:10px;padding:14px;text-align:center;"><div style="font-size:10px;font-weight:700;color:#7c3aed;letter-spacing:.1em;text-transform:uppercase;margin-bottom:4px;">Build to Scale</div><div style="font-size:12px;color:#6b7280;">${d60} → ${d90}</div></div>
   </div>
-  <div style="font-size:10px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:#7c3aed;margin-bottom:14px;">Action Steps</div>
   ${stepsHTML}
   <div style="background:#fff;border:1px solid #e5e7eb;border-radius:12px;padding:24px 28px;margin-bottom:24px;">
     <div style="font-size:10px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:#7c3aed;margin-bottom:16px;">Weekly Check-In Log</div>
     <table style="width:100%;border-collapse:collapse;font-size:12px;">
-      <thead><tr style="border-bottom:2px solid #e5e7eb;"><th style="text-align:left;padding:8px 10px;color:#374151;">Week</th><th style="text-align:left;padding:8px 10px;color:#374151;">What I did</th><th style="text-align:left;padding:8px 10px;color:#374151;">What broke / slipped</th><th style="text-align:left;padding:8px 10px;color:#374151;">Next focus</th></tr></thead>
+      <thead><tr style="border-bottom:2px solid #e5e7eb;"><th style="text-align:left;padding:8px 10px;color:#374151;">Week</th><th style="text-align:left;padding:8px 10px;color:#374151;">What I did</th><th style="text-align:left;padding:8px 10px;color:#374151;">What slipped</th><th style="text-align:left;padding:8px 10px;color:#374151;">Next focus</th></tr></thead>
       <tbody>${Array.from({length:12},(_,i)=>`<tr style="border-bottom:1px solid #f3f4f6;"><td style="padding:12px 10px;color:#9ca3af;">Wk ${i+1}</td><td style="padding:12px 10px;"></td><td style="padding:12px 10px;"></td><td style="padding:12px 10px;"></td></tr>`).join('')}</tbody>
     </table>
   </div>
@@ -1144,7 +1356,7 @@ function downloadTracker() {
   const blob = new Blob([html],{type:'text/html'});
   const a = document.createElement('a');
   a.href = URL.createObjectURL(blob);
-  a.download = 'excellence-action-plan.html';
+  a.download = `${(selectedCategory?.label||'excellence').toLowerCase().replace(/\s+/g,'-')}-action-plan.html`;
   document.body.appendChild(a); a.click(); document.body.removeChild(a);
   URL.revokeObjectURL(a.href);
 }
@@ -1154,7 +1366,7 @@ function handleDl() {
   const n = document.getElementById('rname').value.trim();
   const e = document.getElementById('remail').value.trim();
   if (!n || !e || !e.includes('@')) {
-    document.getElementById('rname').style.borderColor = '#7c3aed';
+    document.getElementById('rname').style.borderColor  = '#7c3aed';
     document.getElementById('remail').style.borderColor = '#7c3aed';
     return;
   }
@@ -1166,7 +1378,7 @@ function handleDl2() {
   const e = document.getElementById('remail2').value.trim();
   if (!n || !e || !e.includes('@')) {
     document.getElementById('rname2').style.borderColor = '#7c3aed';
-    document.getElementById('remail2').style.borderColor = '#7c3aed';
+    document.getElementById('remail2').style.borderColor= '#7c3aed';
     return;
   }
   document.getElementById('rdl-btn2').style.display = 'none';
@@ -1177,7 +1389,7 @@ function handleDl2() {
 function resetAll() {
   current = 0; answers.fill('');
   deepCurrent = 0; deepAnswers.fill('');
-  lastAuditData = null; trackerState = null;
+  lastAuditData = null; trackerState = null; selectedCategory = null;
 
   ['re-result','re-deep-quiz','re-deep-result','re-load'].forEach(id => {
     document.getElementById(id).style.display = 'none';
@@ -1185,30 +1397,31 @@ function resetAll() {
   const err = document.getElementById('re-error');
   if (err) err.remove();
 
-  document.getElementById('progWrap').style.display     = 'block';
-  document.getElementById('re-quiz').style.display      = 'block';
-  document.getElementById('digDeepWrap').style.display  = 'block';
-  document.getElementById('gateBox').style.display      = 'block';
-  document.getElementById('trackerSection').style.display = 'none';
+  document.getElementById('re-quiz').style.display       = 'none';
+  document.getElementById('progWrap').style.display      = 'none';
+  document.getElementById('stepPills').style.display     = 'none';
+  document.getElementById('re-category').style.display   = 'block';
+  document.getElementById('cardTitle').textContent        = 'The Excellence Audit';
+  document.getElementById('digDeepWrap').style.display   = 'block';
+  document.getElementById('gateBox').style.display       = 'block';
+  document.getElementById('trackerSection').style.display= 'none';
   document.getElementById('re-result').querySelector('.rreset').style.display = 'block';
   ['rdl-btn','rdl-btn2'].forEach(id => { document.getElementById(id).style.display = 'block'; });
   ['rsuc','rsuc2'].forEach(id => { document.getElementById(id).style.display = 'none'; });
   ['rname','remail','rname2','remail2'].forEach(id => { const el = document.getElementById(id); if(el) el.value=''; });
-  document.getElementById('cardBadge').textContent     = 'Free · No commitment';
-  document.getElementById('stepPills').style.display   = 'flex';
-  document.getElementById('gaugeFill').style.width     = '0%';
-  document.getElementById('scoreNum').innerHTML        = '—<span> / 100</span>';
-  document.getElementById('dataPoints').innerHTML      = '';
-  document.getElementById('rrf').innerHTML             = '';
-  document.getElementById('rootCauses').innerHTML      = '';
-  document.getElementById('rsteps').innerHTML          = '';
-  document.getElementById('rarct').textContent         = '';
-  document.getElementById('rarctl').textContent        = '';
-  renderStep();
+  document.getElementById('cardBadge').textContent   = 'Free · No commitment';
+  document.getElementById('gaugeFill').style.width   = '0%';
+  document.getElementById('scoreNum').innerHTML      = '—<span> / 100</span>';
+  document.getElementById('dataPoints').innerHTML    = '';
+  document.getElementById('rrf').innerHTML           = '';
+  document.getElementById('rootCauses').innerHTML    = '';
+  document.getElementById('rsteps').innerHTML        = '';
+  document.getElementById('rarct').textContent       = '';
+  document.getElementById('rarctl').textContent      = '';
   window.scrollTo({ top:0, behavior:'smooth' });
 }
 
-renderStep();
+lucide.createIcons();
 </script>
 </body>
 </html>
